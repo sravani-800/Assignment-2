@@ -1,16 +1,21 @@
-function calculateTotal() {
-    const subtotal = parseFloat(document.getElementById("subtotal").value);
-    const tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+function Palindrome(string)
+{  
+  
+    const len = string.length;  
 
-    if (isNaN(subtotal) || isNaN(tipPercentage) || subtotal < 0 || tipPercentage < 0) {
-        document.getElementById("output").textContent = "Please enter valid positive numbers for subtotal and tip percentage.";
-        return;
-    }
-
-    const tipAmount = (subtotal * tipPercentage) / 100;
-    const totalAmount = subtotal + tipAmount;
-
-    document.getElementById("output").textContent = `Total amount to be paid: $${totalAmount.toFixed(2)}`;
-}
-
-document.getElementById("calculateButton").addEventListener("click", calculateTotal);
+    for (let i = 0; i < len / 2; i++) 
+    {  
+    
+        if (string[i] !== string[len - 1 - i]) 
+        {  
+            return( string+' is not a palindrome');  
+        }  
+    }  
+    return( string+' is a palindrome');  
+}  
+document.getElementById('checkButton').addEventListener('click', function()
+{
+    const inputString = document.getElementById('InputNumber').value;
+    const val = Palindrome(inputString);
+    document.getElementById('output').textContent = val;
+});
